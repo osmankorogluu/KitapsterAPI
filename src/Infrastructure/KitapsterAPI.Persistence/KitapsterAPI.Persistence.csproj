@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\KitapsterAPI.Application\KitapsterAPI.Application.csproj" />
+  </ItemGroup>
+
 </Project>
