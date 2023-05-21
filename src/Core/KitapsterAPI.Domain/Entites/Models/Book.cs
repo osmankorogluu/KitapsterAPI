@@ -22,5 +22,7 @@ namespace KitapsterAPI.Domain.Entites.Models
         public string Situation { get; set; }
         public string Condition { get; set; }
         public string Cargo { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }
