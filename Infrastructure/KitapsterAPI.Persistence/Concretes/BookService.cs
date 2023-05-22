@@ -13,7 +13,7 @@ namespace KitapsterAPI.Persistence.Concretes
         public List<Book> GetBooks()
             => new()
         {
-            new(){BookName= "bir şeytanın papazı"} 
+                new(){ BookName = "bir şeytanın papazı"}
         };
     }
 }

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitapsterAPI.Infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KitapsterAPI.WebApi", "src\Presentation\KitapsterAPI.WebApi\KitapsterAPI.WebApi.csproj", "{93054A9F-8FD3-4526-9109-4BC8C6C802D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitapsterAPI.Persistence", "src\Infrastructure\KitapsterAPI.Persistence\KitapsterAPI.Persistence.csproj", "{6350D266-0DFC-401B-9D5C-BEEE51AA7549}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitapsterAPI.Persistence", "Infrastructure\KitapsterAPI.Persistence\KitapsterAPI.Persistence.csproj", "{25F537DA-3F0C-4AED-A5E1-6E27280CF15A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,10 @@ Global
 		{93054A9F-8FD3-4526-9109-4BC8C6C802D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93054A9F-8FD3-4526-9109-4BC8C6C802D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93054A9F-8FD3-4526-9109-4BC8C6C802D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6350D266-0DFC-401B-9D5C-BEEE51AA7549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6350D266-0DFC-401B-9D5C-BEEE51AA7549}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6350D266-0DFC-401B-9D5C-BEEE51AA7549}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6350D266-0DFC-401B-9D5C-BEEE51AA7549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F537DA-3F0C-4AED-A5E1-6E27280CF15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F537DA-3F0C-4AED-A5E1-6E27280CF15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F537DA-3F0C-4AED-A5E1-6E27280CF15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F537DA-3F0C-4AED-A5E1-6E27280CF15A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,7 +59,7 @@ Global
 		{7F895AFA-A73F-4432-B5F3-0D20272311D6} = {81642850-DA89-420E-9992-D8D242B83816}
 		{B434C6E0-A8A8-4ABD-965E-0552D048AB42} = {F229A984-C01A-4D60-B9C1-21CF77D28C40}
 		{93054A9F-8FD3-4526-9109-4BC8C6C802D3} = {17CCCC97-237C-4DFC-A1B7-BCE88C818F4D}
-		{6350D266-0DFC-401B-9D5C-BEEE51AA7549} = {F229A984-C01A-4D60-B9C1-21CF77D28C40}
+		{25F537DA-3F0C-4AED-A5E1-6E27280CF15A} = {F229A984-C01A-4D60-B9C1-21CF77D28C40}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D18C372-183D-45BD-910F-907EB5428B33}
