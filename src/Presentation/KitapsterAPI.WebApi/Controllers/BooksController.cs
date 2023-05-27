@@ -1,4 +1,5 @@
 ﻿using KitapsterAPI.Application.Abstractions;
+using KitapsterAPI.Application.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,18 +9,24 @@ namespace KitapsterAPI.WebApi.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IBookService _bookService;
+        readonly private IBookReadRepository _bookReadRepository;
+        readonly private IBookWriteRepository _bookWriteRepository;
 
-        public BooksController(IBookService bookService)
+        public BooksController(IBookReadRepository bookReadRepository, IBookWriteRepository bookWriteRepository)
         {
-            _bookService = bookService;
+            _bookReadRepository = bookReadRepository;
+            _bookWriteRepository = bookWriteRepository;
         }
-
         [HttpGet]
-        public IActionResult GetBooks()
+        public async void Get()
         {
-            var books = _bookService.GetBooks();
-            return Ok(books);
+            await _bookWriteRepository.AddRangeAsync(new()
+            {
+                new() {Id = Guid.NewGuid(), BookName= "Book 1",CreateDate = DateTime.Now},
+
+            });
+           var count = await _bookWriteRepository.SaveAsync();
         }
+
     }
 }

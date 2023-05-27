@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KitapsterAPI.Application.Repositories;
+using KitapsterAPI.Persistence.Repositeries;
 
 namespace KitapsterAPI.Persistence
 {
@@ -17,8 +19,17 @@ namespace KitapsterAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddSingleton<IBookService, BookService>();
-            services.AddDbContext<KitapsterDbContext>(options => options.UseSqlServer("Server=SEMIH//SQLEXPRESS;Database=KitapsterAPIdb;Trusted_Connection=True;"));
-         
+            services.AddDbContext<KitapsterDbContext>(options => options.UseSqlServer("Server=SEMIH//SQLEXPRESS;Database=KitapsterAPIdb;Trusted_Connection=True;"), ServiceLifetime.Singleton);
+           
+            services.AddSingleton<IBookReadRepository, BookReadRepository>();
+            services.AddSingleton<IBookWriteRepository, BookWriteRepository>();
+
+            services.AddSingleton<ICustomerReadRepository, CustomerReadRepository>();
+            services.AddSingleton<ICustomerWriteRepository, CustomerWriteRepository>();
+
+            services.AddSingleton<IOrderReadRepository, OrderReadRepository>();
+            services.AddSingleton<IOrderWriteRepository, OrderWriteRepository>();
+
         }
     }
 }
