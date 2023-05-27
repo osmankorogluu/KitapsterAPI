@@ -1,5 +1,4 @@
-﻿using KitapsterAPI.Domain.Entites.Common;
-using Microsoft.EntityFrameworkCore;
+﻿using KitapsterAPI.Domain.Entites.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Application.Repositories
 {
-    public interface IRepository<T> where T : BaseEntity
+    public interface IOrderWriteRepository: IWriteRepository<Order>
     {
-        DbSet<T> Table { get; }
-
     }
 }
