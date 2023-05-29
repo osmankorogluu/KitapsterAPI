@@ -22,7 +22,7 @@ namespace KitapsterAPI.WebApi.Controllers
         {
             await _bookWriteRepository.AddRangeAsync(new()
             {
-                new() {Id = Guid.NewGuid(), BookName= "Book 1",CreateDate = DateTime.Now},
+                new() {Id = Guid.NewGuid(), BookName= "Book 1",ProductCode = 55,Stock=5, Translator ="ben", Preparer="sen", Publisher="geş", PublicationPlace="ds", Language="df", Skin= "df", ISBN=5555, Situation="sf", Condition="iyi", Cargo="mng" ,CreateDate = DateTime.Now},
 
             });
            var count = await _bookWriteRepository.SaveAsync();

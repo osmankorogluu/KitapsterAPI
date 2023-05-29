@@ -19,7 +19,8 @@ namespace KitapsterAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddSingleton<IBookService, BookService>();
-            services.AddDbContext<KitapsterDbContext>(options => options.UseSqlServer("Server=SEMIH//SQLEXPRESS;Database=KitapsterAPIdb;Trusted_Connection=True;"), ServiceLifetime.Singleton);
+            services.AddDbContext<KitapsterDbContext>(options => options.UseSqlServer(@"Server=SEMIH\SQLEXPRESS;Database=KitapsterAPIdb;Trusted_Connection=True; TrustServerCertificate=True;"), 
+                ServiceLifetime.Singleton);
            
             services.AddSingleton<IBookReadRepository, BookReadRepository>();
             services.AddSingleton<IBookWriteRepository, BookWriteRepository>();
