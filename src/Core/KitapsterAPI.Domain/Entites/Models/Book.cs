@@ -9,6 +9,8 @@ namespace KitapsterAPI.Domain.Entites.Models
 {
     public class Book : BaseEntity
     {
+        public Guid BookId { get; set; }
+        public int SubCategoryId { get; set; }
         public string BookName { get; set; }
         public int ProductCode { get; set; }
         public int Stock { get; set; }

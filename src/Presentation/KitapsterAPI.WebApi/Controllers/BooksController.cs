@@ -1,6 +1,8 @@
 ﻿using KitapsterAPI.Application.Abstractions;
 using KitapsterAPI.Application.Repositories;
+using KitapsterAPI.Domain.Entites.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KitapsterAPI.WebApi.Controllers
@@ -29,4 +31,6 @@ namespace KitapsterAPI.WebApi.Controllers
         }
 
     }
+
+   
 }
