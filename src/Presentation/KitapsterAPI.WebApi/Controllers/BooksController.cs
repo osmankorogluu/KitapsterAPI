@@ -20,7 +20,7 @@ namespace KitapsterAPI.WebApi.Controllers
             _bookWriteRepository = bookWriteRepository;
         }
         [HttpGet]
-        public async void Get()
+        public async Task Get()
         {
             await _bookWriteRepository.AddRangeAsync(new()
             {
@@ -30,6 +30,12 @@ namespace KitapsterAPI.WebApi.Controllers
            var count = await _bookWriteRepository.SaveAsync();
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            Book book = await _bookReadRepository.GetByIdAsync(id);
+            return Ok(book);
+        }
     }
 
    
