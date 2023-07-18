@@ -19,25 +19,24 @@ namespace KitapsterAPI.WebApi.Controllers
             _bookReadRepository = bookReadRepository;
             _bookWriteRepository = bookWriteRepository;
         }
+        //[HttpGet]
+        //public async Task Get()
+        //{
+        //    await _bookWriteRepository.AddRangeAsync(new()
+        //    {
+        //        new() {Id = Guid.NewGuid(), BookName= "Book 1",ProductCode = 55,Stock=5, Translator ="ben", Preparer="sen", Publisher="geş", PublicationPlace="ds", Language="df", Skin= "df", ISBN=5555, Situation="sf", Condition="iyi", Cargo="mng" ,CreateDate = DateTime.Now},
+
+        //    });
+        //    var count = await _bookWriteRepository.SaveAsync();
+           
+        //}
+
         [HttpGet]
         public async Task Get()
         {
-            //await _bookWriteRepository.AddRangeAsync(new()
-            //{
-            //    new() {Id = Guid.NewGuid(), BookName= "Book 1",ProductCode = 55,Stock=5, Translator ="ben", Preparer="sen", Publisher="geş", PublicationPlace="ds", Language="df", Skin= "df", ISBN=5555, Situation="sf", Condition="iyi", Cargo="mng" ,CreateDate = DateTime.Now},
-
-            //});
-            //var count = await _bookWriteRepository.SaveAsync();
-            Book b = await _bookReadRepository.GetByIdAsync("d9931813-59ee-4e99-a8f4-9038d103b342",false);
-            b.BookName = "Semih kitapı";
+            Book book = await _bookReadRepository.GetByIdAsync("acb0121f-a0ab-40f4-986e-15feaba67d74");
+            book.BookName = "yarrak";
             await _bookWriteRepository.SaveAsync();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
-        {
-            Book book = await _bookReadRepository.GetByIdAsync(id);
-            return Ok(book);
         }
     }
 

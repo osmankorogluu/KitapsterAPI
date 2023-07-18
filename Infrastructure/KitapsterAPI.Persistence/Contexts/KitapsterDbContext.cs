@@ -1,4 +1,5 @@
-﻿using KitapsterAPI.Domain.Entites.Models;
+﻿using KitapsterAPI.Domain.Entites.Common;
+using KitapsterAPI.Domain.Entites.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
@@ -17,7 +18,24 @@ namespace KitapsterAPI.Persistence.Contexts
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Category> Categories { get; set; }
-        //public DbSet<SubCategory> SubCategories { get; set; }
+        //public DbSet<SubCategory> SubCategories { get; set; 
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var datas = ChangeTracker
+                .Entries<BaseEntity>();
+            foreach (var data in datas)
+            {
+                _ = data.State switch
+                {
+                    EntityState.Added => data.Entity.CreateDate = DateTime.UtcNow,
+                    EntityState.Modified => data.Entity.CreateDate = DateTime.UtcNow,
+
+                };
+            }
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+
 
 
     }
