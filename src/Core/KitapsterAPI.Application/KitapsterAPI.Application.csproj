@@ -14,4 +14,10 @@
     <ProjectReference Include="..\KitapsterAPI.Domain\KitapsterAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="WiewModels\Categories\" />
+    <Folder Include="WiewModels\Customers\" />
+    <Folder Include="WiewModels\Orders\" />
+  </ItemGroup>
+
 </Project>

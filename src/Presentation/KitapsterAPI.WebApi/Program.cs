@@ -3,7 +3,7 @@ using KitapsterAPI.Persistence;
 
 builder.Services.AddPersistenceServices();
 builder.Services.AddCors(optios => optios.AddDefaultPolicy(policy =>
-policy.WithOrigins("http://localhost:55595", "https://localhost:55595").AllowAnyHeader().AllowAnyMethod()
+policy.WithOrigins("http://localhost:61948", "https://localhost:61948").AllowAnyHeader().AllowAnyMethod()
 ));
 
 builder.Services.AddControllers();

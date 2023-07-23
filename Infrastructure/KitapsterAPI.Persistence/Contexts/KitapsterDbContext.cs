@@ -30,7 +30,7 @@ namespace KitapsterAPI.Persistence.Contexts
                 {
                     EntityState.Added => data.Entity.CreateDate = DateTime.UtcNow,
                     EntityState.Modified => data.Entity.CreateDate = DateTime.UtcNow,
-
+                    _ => DateTime.UtcNow
                 };
             }
             return await base.SaveChangesAsync(cancellationToken);
