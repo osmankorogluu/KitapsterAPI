@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KitapsterAPI.Persistence.Migrations
 {
     [DbContext(typeof(KitapsterDbContext))]
-    [Migration("20230723172520_mig_1")]
+    [Migration("20230808185924_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />

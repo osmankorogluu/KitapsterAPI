@@ -7,17 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="WiewModels\Categories\**" />
+    <Compile Remove="WiewModels\Customers\**" />
+    <Compile Remove="WiewModels\Orders\**" />
+    <EmbeddedResource Remove="WiewModels\Categories\**" />
+    <EmbeddedResource Remove="WiewModels\Customers\**" />
+    <EmbeddedResource Remove="WiewModels\Orders\**" />
+    <None Remove="WiewModels\Categories\**" />
+    <None Remove="WiewModels\Customers\**" />
+    <None Remove="WiewModels\Orders\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KitapsterAPI.Domain\KitapsterAPI.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="WiewModels\Categories\" />
-    <Folder Include="WiewModels\Customers\" />
-    <Folder Include="WiewModels\Orders\" />
   </ItemGroup>
 
 </Project>

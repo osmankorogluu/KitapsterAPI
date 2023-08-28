@@ -37,6 +37,10 @@ namespace KitapsterAPI.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(VM_Create_Book model) 
         {
+            if (ModelState.IsValid)
+            {
+
+            }
             await _bookWriteRepository.AddAsync(new()
             {
                 BookName = model.BookName,

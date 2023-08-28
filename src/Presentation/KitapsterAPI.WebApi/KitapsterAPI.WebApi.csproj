@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Infrastructure\KitapsterAPI.Persistence\KitapsterAPI.Persistence.csproj" />
     <ProjectReference Include="..\..\Core\KitapsterAPI.Application\KitapsterAPI.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\KitapsterAPI.Infrastructure\KitapsterAPI.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
