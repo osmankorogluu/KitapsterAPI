@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KitapsterAPI.Persistence.Migrations
 {
     [DbContext(typeof(KitapsterDbContext))]
-    [Migration("20230808185924_mig_1")]
+    [Migration("20230917152833_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -24,48 +24,6 @@ namespace KitapsterAPI.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("BookOrder", b =>
-                {
-                    b.Property<Guid>("BooksId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("OrdersId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("BooksId", "OrdersId");
-
-                    b.HasIndex("OrdersId");
-
-                    b.ToTable("BookOrder");
-                });
-
-            modelBuilder.Entity("KitapsterAPI.Domain.Entites.Models.Book", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("BookName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ProductCode")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Books");
-                });
 
             modelBuilder.Entity("KitapsterAPI.Domain.Entites.Models.Category", b =>
                 {
@@ -144,19 +102,46 @@ namespace KitapsterAPI.Persistence.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("BookOrder", b =>
+            modelBuilder.Entity("KitapsterAPI.Domain.Entites.Models.Product", b =>
                 {
-                    b.HasOne("KitapsterAPI.Domain.Entites.Models.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasOne("KitapsterAPI.Domain.Entites.Models.Order", null)
-                        .WithMany()
-                        .HasForeignKey("OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("OrderProduct", b =>
+                {
+                    b.Property<Guid>("BooksId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("OrdersId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BooksId", "OrdersId");
+
+                    b.HasIndex("OrdersId");
+
+                    b.ToTable("OrderProduct");
                 });
 
             modelBuilder.Entity("KitapsterAPI.Domain.Entites.Models.Order", b =>
@@ -168,6 +153,21 @@ namespace KitapsterAPI.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("OrderProduct", b =>
+                {
+                    b.HasOne("KitapsterAPI.Domain.Entites.Models.Product", null)
+                        .WithMany()
+                        .HasForeignKey("BooksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KitapsterAPI.Domain.Entites.Models.Order", null)
+                        .WithMany()
+                        .HasForeignKey("OrdersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("KitapsterAPI.Domain.Entites.Models.Customer", b =>

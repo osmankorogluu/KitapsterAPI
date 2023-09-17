@@ -18,11 +18,11 @@ namespace KitapsterAPI.Persistence
     {
         public static void AddPersistenceServices(this IServiceCollection services)
         {
-            services.AddSingleton<IBookService, BookService>();
+            services.AddSingleton<IProductService, ProductService>();
             services.AddDbContext<KitapsterDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-5SML2C9\SQLEXPRESS;Database=KitapsterAPIdb;Trusted_Connection=True; TrustServerCertificate=True;"));
            
-            services.AddScoped<IBookReadRepository, BookReadRepository>();
-            services.AddScoped<IBookWriteRepository, BookWriteRepository>();
+            services.AddScoped<IProductReadRepository, BookReadRepository>();
+            services.AddScoped<IProductWriteRepository, BookWriteRepository>();
 
             services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();

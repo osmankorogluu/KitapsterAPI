@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Application.WiewModels.Books
 {
-    public class VM_Update_Book: BaseEntity
+    public class VM_Update_Product: BaseEntity
     {
        public string Id { get; set; }
-        public string BookName { get; set; }
+        public string ProductName { get; set; }
         public int ProductCode { get; set; }
         public int Stock { get; set; }
     }

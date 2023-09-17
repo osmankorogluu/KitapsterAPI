@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Application.Repositories
 {
-    public interface IBookReadRepository: IReadRepository<Book>
+    public interface IProductReadRepository: IReadRepository<Product>
     {
     }
 }

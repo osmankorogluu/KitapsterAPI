@@ -16,7 +16,7 @@ namespace KitapsterAPI.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BookName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductCode = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -80,7 +80,7 @@ namespace KitapsterAPI.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookOrder",
+                name: "OrderProduct",
                 columns: table => new
                 {
                     BooksId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -88,15 +88,15 @@ namespace KitapsterAPI.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookOrder", x => new { x.BooksId, x.OrdersId });
+                    table.PrimaryKey("PK_OrderProduct", x => new { x.BooksId, x.OrdersId });
                     table.ForeignKey(
-                        name: "FK_BookOrder_Books_BooksId",
+                        name: "FK_OrderProduct_Books_BooksId",
                         column: x => x.BooksId,
                         principalTable: "Books",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookOrder_Orders_OrdersId",
+                        name: "FK_OrderProduct_Orders_OrdersId",
                         column: x => x.OrdersId,
                         principalTable: "Orders",
                         principalColumn: "Id",
@@ -104,8 +104,8 @@ namespace KitapsterAPI.Persistence.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookOrder_OrdersId",
-                table: "BookOrder",
+                name: "IX_OrderProduct_OrdersId",
+                table: "OrderProduct",
                 column: "OrdersId");
 
             migrationBuilder.CreateIndex(
@@ -118,10 +118,10 @@ namespace KitapsterAPI.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BookOrder");
+                name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "OrderProduct");
 
             migrationBuilder.DropTable(
                 name: "Books");

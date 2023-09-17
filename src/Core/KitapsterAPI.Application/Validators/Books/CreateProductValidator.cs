@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Application.Validators.Books
 {
-    public class CreateBookValidator : AbstractValidator<VM_Create_Book>
+    public class CreateProductValidator : AbstractValidator<VM_Create_Product>
     {
-        public CreateBookValidator()
+        public CreateProductValidator()
         {
-            RuleFor(b => b.BookName)
+            RuleFor(b => b.ProductName)
                 .NotEmpty()
                 .NotNull()
                 .WithMessage("Lütfen kitap adını boş geçmeyiniz.")

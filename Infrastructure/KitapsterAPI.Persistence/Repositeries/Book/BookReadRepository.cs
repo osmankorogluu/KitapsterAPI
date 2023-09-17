@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Persistence.Repositeries
 {
-    public class BookReadRepository : ReadRepository<Book>, IBookReadRepository
+    public class BookReadRepository : ReadRepository<Product>, IProductReadRepository
     {
         public BookReadRepository(KitapsterDbContext context) : base(context)
         {

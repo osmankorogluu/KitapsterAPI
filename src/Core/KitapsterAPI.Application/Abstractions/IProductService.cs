@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KitapsterAPI.Application.Repositories
+namespace KitapsterAPI.Application.Abstractions
 {
-    public interface IBookWriteRepository: IWriteRepository<Book>
+    public interface IProductService
     {
+        List<Product> GetBooks();
     }
 }

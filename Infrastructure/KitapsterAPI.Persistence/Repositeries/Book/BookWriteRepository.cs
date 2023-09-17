@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Persistence.Repositeries
 {
-    public class BookWriteRepository : WriteRepository<Book>, IBookWriteRepository
+    public class BookWriteRepository : WriteRepository<Product>, IProductWriteRepository
     {
         public BookWriteRepository(KitapsterDbContext context) : base(context)
         {

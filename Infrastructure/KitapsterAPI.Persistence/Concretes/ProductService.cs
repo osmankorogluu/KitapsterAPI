@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Persistence.Concretes
 {
-    public class BookService : IBookService
+    public class ProductService : IProductService
     {
-        public List<Book> GetBooks()
+        public List<Product> GetBooks()
             => new()
         {
-                new(){ BookName = "bir şeytanın papazı"}
+                new(){ ProductName = "bir şeytanın papazı"}
         };
     }
 }
