@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using KitapsterAPI.Application.Repositories;
 using KitapsterAPI.Persistence.Repositeries;
+using KitapsterAPI.Application.Repositories.User;
+using KitapsterAPI.Persistence.Repositeries.User;
 
 namespace KitapsterAPI.Persistence
 {
@@ -29,6 +31,9 @@ namespace KitapsterAPI.Persistence
 
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+
+            
+
 
         }
     }
