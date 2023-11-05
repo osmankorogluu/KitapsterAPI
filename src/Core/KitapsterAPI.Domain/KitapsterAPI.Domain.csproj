@@ -8,6 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Core\" />
+    <None Remove="Core\Repository\" />
+    <None Remove="Core\UnitOfWork\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="Core\Repository\" />
+    <Folder Include="Core\UnitOfWork\" />
+  </ItemGroup>
 </Project>
