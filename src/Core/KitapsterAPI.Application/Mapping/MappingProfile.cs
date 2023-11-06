@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using KitapsterAPI.Domain.Entites.Models;
 using KitapsterAPI.Domain.Entites.Queries;
+using KitapsterAPI.Domain.Entites.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace KitapsterAPI.Application.Mapping
         {
             CreateMap<User, LoginUserViewModel>()
                 .ReverseMap();
+
+            CreateMap<User, CreateUserCommand>() .ReverseMap();
         }
     }
 }

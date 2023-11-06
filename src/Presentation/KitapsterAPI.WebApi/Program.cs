@@ -3,6 +3,8 @@ using KitapsterAPI.Application.Extensions;
 using KitapsterAPI.Application.Validators.Books;
 using KitapsterAPI.Infrastructure.Filters;
 using KitapsterAPI.Persistence;
+using MediatR;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Office.Interop.Excel;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,14 +33,16 @@ builder.Services.AddControllers(options =>
     //.AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
     //.ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
 
-builder.Services.AddMediatR(cfg => {
-    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
-});
+//builder.Services.AddMediatR(cfg => {
+//    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+//});
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblies(typeof(Program).Assembly));
+
 
 var app = builder.Build();
 

@@ -1,21 +1,18 @@
-﻿using KitapsterAPI.Domain.Entites.Common;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KitapsterAPI.Domain.Entites.Models
+namespace KitapsterAPI.Domain.Entites.RequestModels
 {
-    public class User: BaseEntity
+    public class CreateUserCommand: IRequest<Guid>
     {
-        
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string UserName { get; set; }
         public string EmailAddress { get; set; }
+        public string UserName  { get; set; }
         public string Password { get; set; }
-        public bool EmailConfirmed { get; set; }
-        public string Token { get; set; }
     }
 }

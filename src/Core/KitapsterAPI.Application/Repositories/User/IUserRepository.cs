@@ -9,5 +9,6 @@ namespace KitapsterAPI.Application.Repositories.User
 {
     public interface IUserRepository : IGenericRepository<LoginUserViewModel>
     {
+        Task AddAsync(Domain.Entites.Models.User dbUser);
     }
 }

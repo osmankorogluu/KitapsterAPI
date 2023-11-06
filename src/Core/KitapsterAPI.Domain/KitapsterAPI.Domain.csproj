@@ -17,8 +17,6 @@
     <None Remove="Core\UnitOfWork\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
-    <Folder Include="Core\Repository\" />
     <Folder Include="Core\UnitOfWork\" />
   </ItemGroup>
 </Project>

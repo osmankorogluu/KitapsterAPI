@@ -13,6 +13,8 @@ using KitapsterAPI.Application.Repositories;
 using KitapsterAPI.Persistence.Repositeries;
 using KitapsterAPI.Application.Repositories.User;
 using KitapsterAPI.Persistence.Repositeries.User;
+using KitapsterAPI.Domain.Core.UnitOfWork;
+using KitapsterAPI.Domain.Core.Repository;
 
 namespace KitapsterAPI.Persistence
 {
@@ -21,16 +23,25 @@ namespace KitapsterAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddSingleton<IProductService, ProductService>();
-            services.AddDbContext<KitapsterDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-5SML2C9\SQLEXPRESS;Database=KitapsterAPIdb;Trusted_Connection=True; TrustServerCertificate=True;"));
+            services.AddDbContext<KitapsterDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-5SML2C9\SQLEXPRESS;Database=KitapsterAPIdb;Trusted_Connection=True;TrustServerCertificate=True;"));
            
-            services.AddScoped<IProductReadRepository, BookReadRepository>();
-            services.AddScoped<IProductWriteRepository, BookWriteRepository>();
+            services.AddTransient<IProductReadRepository, BookReadRepository>();
+            services.AddTransient<IProductWriteRepository, BookWriteRepository>();
 
-            services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
-            services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
+            services.AddTransient<ICustomerReadRepository, CustomerReadRepository>();
+            services.AddTransient<ICustomerWriteRepository, CustomerWriteRepository>();
 
-            services.AddScoped<IOrderReadRepository, OrderReadRepository>();
-            services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+            services.AddTransient<IOrderReadRepository, OrderReadRepository>();
+            services.AddTransient<IOrderWriteRepository, OrderWriteRepository>();
+
+            services.AddTransient<IUnitOfWorkFactory, FakeRepository>();
+
+            
+
+
+           
+
+           
 
             
 
