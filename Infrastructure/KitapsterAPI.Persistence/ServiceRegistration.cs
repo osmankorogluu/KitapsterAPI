@@ -34,6 +34,9 @@ namespace KitapsterAPI.Persistence
             services.AddTransient<IOrderReadRepository, OrderReadRepository>();
             services.AddTransient<IOrderWriteRepository, OrderWriteRepository>();
 
+            services.AddTransient<IBrandReadRepository, BrandReadRepository>();
+            services.AddTransient<IBrandWriteRepository, BrandWriteRepository>();
+
             services.AddTransient<IUnitOfWorkFactory, FakeRepository>();
 
             
