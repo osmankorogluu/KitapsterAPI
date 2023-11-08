@@ -29,10 +29,8 @@ namespace KitapsterAPI.WebApi.Controllers
                 p.BrandName,
                 p.CreateDate,
                 p.UpdatedDate
-                
 
             }));
-
         }
 
         [HttpGet("{id}")]

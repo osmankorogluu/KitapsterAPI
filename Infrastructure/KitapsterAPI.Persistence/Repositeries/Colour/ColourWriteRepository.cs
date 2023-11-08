@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace KitapsterAPI.Persistence.Repositeries
 {
-    public class BrandReadRepository : ReadRepository<Brand>, IBrandReadRepository
+    public class ColourWriteRepository : WriteRepository<Domain.Entites.Models.Colour>, IColourWriteRepository
     {
-        public BrandReadRepository(KitapsterDbContext context) : base(context)
+        public ColourWriteRepository(KitapsterDbContext context) : base(context)
         {
         }
     }

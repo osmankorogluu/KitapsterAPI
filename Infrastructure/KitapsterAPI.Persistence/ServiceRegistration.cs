@@ -16,6 +16,7 @@ using KitapsterAPI.Persistence.Repositeries.User;
 using KitapsterAPI.Domain.Core.UnitOfWork;
 using KitapsterAPI.Domain.Core.Repository;
 
+
 namespace KitapsterAPI.Persistence
 {
     public static class ServiceRegistration
@@ -36,6 +37,9 @@ namespace KitapsterAPI.Persistence
 
             services.AddTransient<IBrandReadRepository, BrandReadRepository>();
             services.AddTransient<IBrandWriteRepository, BrandWriteRepository>();
+
+            services.AddTransient<IColourReadRepository, ColourReadRepository>();
+            services.AddTransient<IColourWriteRepository, ColourWriteRepository>();
 
             services.AddTransient<IUnitOfWorkFactory, FakeRepository>();
 
